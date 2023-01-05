@@ -1,6 +1,8 @@
 import 'package:animation_practice/screen3/data/provider.dart';
-import 'package:animation_practice/screen3/data/static.dart';
+import 'package:animation_practice/screen3/tabs/tab_1.dart';
+import 'package:animation_practice/screen3/tabs/tab_2.dart';
 import 'package:animation_practice/screen3/widgets/animated_background.dart';
+import 'package:animation_practice/screen3/widgets/tab_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -12,64 +14,24 @@ class Screen3 extends HookConsumerWidget {
 
   @override
   Widget build(context, ref) {
-    final pageController = ref.watch(pageControllerProvider);
-
-    final size = MediaQuery.of(context).size;
-
     return Scaffold(
       body: Stack(
         children: [
           const AnimatedBackground(),
           PageView(
-            controller: pageController,
-            children: [
+            controller: ref.watch(pageControllerProvider),
+            children: const [
               Padding(
-                padding: const EdgeInsets.all(24.0),
-                child: AnimatedBuilder(
-                    animation: pageController,
-                    builder: (context, widget) {
-                      const scaleFactor = 2; // this indicate speed
-                      final offsetFraction = 1 -
-                          (pageController.offset * scaleFactor / size.width);
-                      final double opacity = offsetFraction.clamp(0, 1);
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Spacer(),
-                          Text(
-                            'Travel description',
-                            style: TextStyle(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .onBackground
-                                    .withOpacity(opacity)),
-                            textScaleFactor: 2.0,
-                          ),
-                          const SizedBox(
-                            height: 12,
-                          ),
-                          Text(
-                            leopardContent,
-                            textScaleFactor: 1.3,
-                            style: TextStyle(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .onBackground
-                                    .withOpacity(opacity * 0.75)),
-                          ),
-                          const SizedBox(height: 36),
-                        ],
-                      );
-                    }),
+                padding: EdgeInsets.all(24.0),
+                child: Tab1(),
               ),
-              Container(
-                child: Center(child: Text('page 2')),
-              ),
-              Container(
-                child: Center(child: Text('page 3')),
+              Padding(
+                padding: EdgeInsets.all(24.0),
+                child: Tab2(),
               ),
             ],
           ),
+          const TabIndicator(),
         ],
       ),
     );

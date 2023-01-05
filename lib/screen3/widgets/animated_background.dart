@@ -21,7 +21,7 @@ class AnimatedBackground extends ConsumerWidget {
         return Stack(
           children: [
             Transform.translate(
-              offset: Offset(-offset * 2 - 36, 164),
+              offset: Offset(-offset * 2 - 36, 100),
               child: const RotatedBox(
                 quarterTurns: 1,
                 child: Text(
@@ -32,14 +32,14 @@ class AnimatedBackground extends ConsumerWidget {
               ),
             ),
             Transform.translate(
-              offset: Offset(-offset * .8 + size.width * 1.3, 400),
+              offset: Offset(-offset * .8 + size.width * 1.3, 364),
               child: Circle(
                 circleSize:
                     ((offset - aniDelay) / (size.width - aniDelay)) * 164,
               ),
             ),
             Transform.translate(
-              offset: Offset(-offset * .8, 360),
+              offset: Offset(-offset * .8, 300),
               child: Stack(
                 children: [
                   Transform.scale(
@@ -53,7 +53,7 @@ class AnimatedBackground extends ConsumerWidget {
                 animation: pageController,
                 builder: (_, __) {
                   return Transform.translate(
-                    offset: Offset(-offset * .8 + size.width + 48, 236),
+                    offset: Offset(-offset * .8 + size.width + 48, 192),
                     child: Transform.scale(
                         scale: 0.75,
                         alignment: Alignment.centerLeft,
