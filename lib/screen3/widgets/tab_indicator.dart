@@ -56,7 +56,7 @@ class _Dot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double opacity = (1 - currentPage - page).abs().clamp(0.2, 1);
+    final double opacity = (1 - currentPage - page).abs().clamp(0.2, 0.8);
     return Text(
       '\u25cf',
       style: TextStyle(

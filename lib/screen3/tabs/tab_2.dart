@@ -36,16 +36,10 @@ class Tab2 extends ConsumerWidget {
               const SizedBox(
                 height: 12,
               ),
-              Text(
-                leopardContent,
-                textScaleFactor: 1.3,
-                style: TextStyle(
-                    color: Theme.of(context)
-                        .colorScheme
-                        .onBackground
-                        .withOpacity(opacity * 0.75)),
+              const SizedBox(
+                height: 90,
               ),
-              const SizedBox(height: 64),
+              const SizedBox(height: 100),
             ],
           );
         });
