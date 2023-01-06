@@ -32,10 +32,10 @@ class AnimatedBackground extends ConsumerWidget {
               ),
             ),
             Transform.translate(
-              offset: Offset(-offset * .8 + size.width * 1.3, 364),
+              offset: Offset(-offset * .8 + size.width * 1.3, 300),
               child: Circle(
                 circleSize:
-                    ((offset - aniDelay) / (size.width - aniDelay)) * 164,
+                    ((offset - aniDelay) / (size.width - aniDelay)) * 120,
               ),
             ),
             Transform.translate(
@@ -43,7 +43,7 @@ class AnimatedBackground extends ConsumerWidget {
               child: Stack(
                 children: [
                   Transform.scale(
-                      scale: 1.5,
+                      scale: 1.6,
                       alignment: Alignment.centerLeft,
                       child: Image.asset('assets/leopard.png')),
                 ],
@@ -53,9 +53,9 @@ class AnimatedBackground extends ConsumerWidget {
                 animation: pageController,
                 builder: (_, __) {
                   return Transform.translate(
-                    offset: Offset(-offset * .8 + size.width + 48, 192),
+                    offset: Offset(-offset * .8 + size.width + 64, 164),
                     child: Transform.scale(
-                        scale: 0.75,
+                        scale: 0.65,
                         alignment: Alignment.centerLeft,
                         child: Image.asset(
                           'assets/vulture.png',
